@@ -1,5 +1,8 @@
 function refreashForecast(response) {
-  console.log(response.data.temperature.current);
+  let temperatureElement = document.querySelector("#city-current-temp");
+  let temperature = response.data.temperature.current;
+
+  temperatureElement.innerHTML = Math.round(temperature);
 }
 
 function searchCity(city) {
