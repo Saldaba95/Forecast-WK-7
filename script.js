@@ -20,3 +20,5 @@ function handleSearchSubmit(event) {
 
 let searchFormElement = document.querySelector("#search-form-engine");
 searchFormElement.addEventListener("submit", handleSearchSubmit);
+
+searchCity("Tokyo");
