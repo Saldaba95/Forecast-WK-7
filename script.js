@@ -2,6 +2,12 @@ function refreashForecast(response) {
   let temperatureElement = document.querySelector("#city-current-temp");
   let temperature = response.data.temperature.current;
   let cityElement = document.querySelector("#city-input");
+  let weatherElement = document.querySelector("#weather-condition");
+  let humidityElement = document.querySelector("#humidity");
+  let windElement = document.querySelector("#wind");
+  windElement.innerHTML = `${response.data.wind.speed} km/h`;
+  humidityElement.innerHTML = `${response.data.temperature.humidity} %`;
+
   cityElement.innerHTML = response.data.city;
   temperatureElement.innerHTML = Math.round(temperature);
 }
