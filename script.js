@@ -9,6 +9,7 @@ function refreashForecast(response) {
   let date = new Date(response.data.time * 1000);
 
   timeElement.innerHTML = formatDate(date);
+  weatherElement.innerHTML = response.data.condition.description;
   windElement.innerHTML = `${response.data.wind.speed} km/h`;
   humidityElement.innerHTML = `${response.data.temperature.humidity} %`;
   cityElement.innerHTML = response.data.city;
