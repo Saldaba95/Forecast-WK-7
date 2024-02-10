@@ -47,16 +47,16 @@ function handleSearchSubmit(event) {
   searchCity(searchInput.value);
 }
 
-let searchFormElement = document.querySelector("#search-form-engine");
-searchFormElement.addEventListener("submit", handleSearchSubmit);
+function displayForecast() {
+  let days = ["Sat", "Sun", "Mon", "Tue", "Wed"];
+  let forecastHtml = "";
 
-searchCity("Tokyo");
-
-let forecast = document.querySelector("#7-day-forecast");
-
-forecast.innerHTML = `
+  days.forEach(function (day) {
+    forecastHtml =
+      forecastHtml +
+      `
   <div class="day-of-the-week">
-    <div class="weather-forecast-date">Fri</div>
+    <div class="weather-forecast-date">${day}</div>
     <div class="'weekly-forecast-icon">
       <img
         src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-day.png"
@@ -70,3 +70,13 @@ forecast.innerHTML = `
     </div>
   </div>
 `;
+  });
+  let forecastElement = document.querySelector("#weekly-day-forecast");
+  forecastElement.innerHTML = forecastHtml;
+}
+
+let searchFormElement = document.querySelector("#search-form-engine");
+searchFormElement.addEventListener("submit", handleSearchSubmit);
+
+searchCity("Tokyo");
+displayForecast();
