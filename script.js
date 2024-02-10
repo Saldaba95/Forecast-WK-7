@@ -51,3 +51,22 @@ let searchFormElement = document.querySelector("#search-form-engine");
 searchFormElement.addEventListener("submit", handleSearchSubmit);
 
 searchCity("Tokyo");
+
+let forecast = document.querySelector("#7-day-forecast");
+
+forecast.innerHTML = `
+  <div class="day-of-the-week">
+    <div class="weather-forecast-date">Fri</div>
+    <div class="'weekly-forecast-icon">
+      <img
+        src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-day.png"
+        alt=""
+        width="35px"
+      />
+    </div>
+    <div class="weekly-forecast-temperature">
+      <span class="weekly-forecast-temperature-max">20 °</span>
+      <span class="weekly-forecast-temperature-min"> 15 °</span>
+    </div>
+  </div>
+`;
