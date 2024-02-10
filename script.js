@@ -48,7 +48,7 @@ function handleSearchSubmit(event) {
 }
 
 function displayForecast() {
-  let days = ["Sat", "Sun", "Mon", "Tue", "Wed"];
+  let days = ["Sat", "Sun", "Mon", "Tue", "Wed", "Thu", "Fri"];
   let forecastHtml = "";
 
   days.forEach(function (day) {
