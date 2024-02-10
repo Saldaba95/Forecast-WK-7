@@ -16,6 +16,8 @@ function refreashForecast(response) {
   humidityElement.innerHTML = `${response.data.temperature.humidity} %`;
   temperatureElement.innerHTML = Math.round(temperature);
   iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="emoji"/>`;
+
+  getForecast(response.data.city);
 }
 function formatDate(date) {
   let minutes = date.getMinutes();
@@ -45,6 +47,12 @@ function handleSearchSubmit(event) {
   event.preventDefault();
   let searchInput = document.querySelector("#search-form-input");
   searchCity(searchInput.value);
+}
+
+function getForecast(city) {
+  let apiKey = "d44bo97ccfe0cbf0e78f5498fb0fa93t";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+  axios(apiUrl).then(displayForecast);
 }
 
 function displayForecast() {
@@ -79,4 +87,4 @@ let searchFormElement = document.querySelector("#search-form-engine");
 searchFormElement.addEventListener("submit", handleSearchSubmit);
 
 searchCity("Tokyo");
-displayForecast();
+getForecast("Tokyo");
