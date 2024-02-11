@@ -47,12 +47,14 @@ header {
   font-size: 38px;
   line-height: 48px;
 }
-.data-details {
+.data-details span {
   font-size: 15px;
   line-height: 20px;
+  opacity: 0.6;
 }
 .data-details strong {
   color: #f6378f;
+  opacity: 0.8;
 }
 main {
   padding: 50px 0;
@@ -86,12 +88,16 @@ main {
   font-size: 16px;
   opacity: 0.6;
 }
+.weekly-forecast-icon {
+  width: 100%;
+}
 .weekly-forecast-temperature-max {
   font-size: 13px;
 }
 .weekly-forecast-temperature-min {
   font-size: 13px;
-  opacity: 0.4;
+  opacity: 0.9;
+  color: #dad;
 }
 footer {
   border-top: 1px solid #dbd8e3;
