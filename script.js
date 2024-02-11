@@ -51,30 +51,32 @@ function handleSearchSubmit(event) {
 
 function getForecast(city) {
   let apiKey = "d44bo97ccfe0cbf0e78f5498fb0fa93t";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
   axios(apiUrl).then(displayForecast);
 }
 
-function displayForecast() {
-  let days = ["Sat", "Sun", "Mon", "Tue", "Wed", "Thu", "Fri"];
+function displayForecast(response) {
+  console.log(response.data);
   let forecastHtml = "";
 
-  days.forEach(function (day) {
+  response.data.daily.forEach(function (day) {
     forecastHtml =
       forecastHtml +
       `
   <div class="day-of-the-week">
-    <div class="weather-forecast-date">${day}</div>
+    <div class="weather-forecast-date">fri</div>
     <div class="'weekly-forecast-icon">
       <img
-        src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-day.png"
-        alt=""
-        width="35px"
+        src="${day.condition.icon_url}"
       />
     </div>
     <div class="weekly-forecast-temperature">
-      <span class="weekly-forecast-temperature-max">20 °</span>
-      <span class="weekly-forecast-temperature-min"> 15 °</span>
+      <span class="weekly-forecast-temperature-max">${Math.round(
+        day.temperature.maximum
+      )} °</span>
+      <span class="weekly-forecast-temperature-min"> ${Math.round(
+        day.temperature.minimum
+      )}°</span>
     </div>
   </div>
 `;
